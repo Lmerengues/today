@@ -1,0 +1,38 @@
+<view class="container mycontainer">
+<scroll-view scroll-y="true" class="my-scroll">
+    <view class="navi-view">
+      <navigator url="/pages/des/des?type=0" open-type="reLaunch" class="tab-list-1" wx:if="{{type == 0}}">热门           
+      </navigator>
+      <navigator url="/pages/des/des?type=0" open-type="reLaunch" class="tab-list-2" wx:if="{{type == 1}}">热门
+      </navigator>
+      <navigator url="/pages/des/des?type=1" open-type="reLaunch" class="tab-list-0" wx:if="{{type == 0}}"> 全部
+      </navigator>
+      <navigator url="/pages/des/des?type=1" open-type="reLaunch" class="tab-list-3" wx:if="{{type == 1}}">全部
+      </navigator>
+    </view>
+    <view class="white-view"></view>
+
+    <view class="hot-view" wx:if="{{type == 0}}">
+      <view class="hot-place-view">
+        <view class="hot-place-title-view">冲绳</view>
+        <image src="https://mina.mapglory.com/static/images/laneway/1.jpg" class="hot-place-image"   bindlongpress='image_longPress' data-src="{{item.purl}}" />
+        
+      </view>
+
+      <view class="hot-place-view">
+        <view class="hot-place-title-view">曼谷</view>
+        <image src="https://mina.mapglory.com/static/images/laneway/2.jpg" class="hot-place-image"   bindlongpress='image_longPress' data-src="{{item.purl}}" />
+        
+      </view>
+
+      <view class="hot-place-view">
+        <view class="hot-place-title-view">香港</view>
+        <image src="https://mina.mapglory.com/static/images/laneway/3.jpg" class="hot-place-image"   bindlongpress='image_longPress' data-src="{{item.purl}}" />
+       
+      </view>
+    </view>
+</scroll-view>
+
+
+
+</view>

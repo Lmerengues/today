@@ -1,0 +1,70 @@
+<!--index.wxml-->
+<view class="container mycontainer">
+  <scroll-view scroll-y="true" class="my-scroll">
+    <view class="comment-view">
+        <view class="avatar-view">
+          <image src="../../images/logo.jpeg" class="avatar"/>
+        </view>
+        <view class="comment-detail-view">
+          <view class="name-view">ZI HUI</view>
+          <view class="star_date_view">
+            <view class="tiny-star-view">
+              <image src="../../images/star.png" class="tiny-star"/>
+            </view>
+            <view class="date-view">2018年1月20日</view>
+          </view>
+          <view class="comment-text-view">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！
+          </view>
+        </view>
+    </view>
+    <view class="comment-view">
+        <view class="avatar-view">
+          <image src="../../images/ronaldo.jpeg" class="avatar"/>
+        </view>
+        <view class="comment-detail-view">
+          <view class="name-view">ZI HUI</view>
+          <view class="star_date_view">
+            <view class="tiny-star-view">
+              <image src="../../images/star.png" class="tiny-star"/>
+            </view>
+            <view class="date-view">2018年1月20日</view>
+          </view>
+          <view class="comment-text-view">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！
+          </view>
+        </view>
+    </view>
+    <view class="comment-view">
+        <view class="avatar-view">
+          <image src="../../images/logo.jpeg" class="avatar"/>
+        </view>
+        <view class="comment-detail-view">
+          <view class="name-view">ZI HUI</view>
+          <view class="star_date_view">
+            <view class="tiny-star-view">
+              <image src="../../images/star.png" class="tiny-star"/>
+            </view>
+            <view class="date-view">2018年1月20日</view>
+          </view>
+          <view class="comment-text-view">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！
+          </view>
+        </view>
+    </view>
+    <view class="comment-view">
+        <view class="avatar-view">
+          <image src="../../images/ronaldo.jpeg" class="avatar"/>
+        </view>
+        <view class="comment-detail-view">
+          <view class="name-view">ZI HUI</view>
+          <view class="star_date_view">
+            <view class="tiny-star-view">
+              <image src="../../images/star.png" class="tiny-star"/>
+            </view>
+            <view class="date-view">2018年1月20日</view>
+          </view>
+          <view class="comment-text-view">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！
+          </view>
+        </view>
+    </view>
+    <view class="foot-view"></view>
+  </scroll-view>
+</view>

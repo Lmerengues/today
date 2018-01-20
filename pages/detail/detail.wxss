@@ -1,0 +1,269 @@
+
+.mycontainer{
+  padding:0 0;
+  background-color: #ffffff;
+  height:1300rpx;
+}
+.my-scroll{
+  height:100%;
+  width:100%;
+}
+.swiper-view{
+  height:52%;
+  width:100%;
+}
+.myswiper{
+  height:100%;
+  width:100%;
+}
+
+.room-image{
+  width: 100%; 
+  height: 100%;
+  margin-bottom: 0;
+  padding-bottom:0; 
+}
+
+.basic-info-view{
+  width:92%;
+  margin: 30rpx 4%;
+  padding-bottom:20rpx;
+  border-bottom:1rpx solid #9f9999;
+}
+.big-title-view{
+  width:100%;
+  font-size:45rpx;
+  font-weight:500;
+}
+.medium-title-view{
+  width:100%;
+  font-size:30rpx;
+  font-weight:300;
+}
+.price-view{
+  width:100%;
+  font-size:45rpx;
+  font-weight:550;
+  color:#fc5830;
+}
+.beizhu-view{
+  width:100%;
+  font-size:25rpx;
+  font-weight:300;
+}
+.data-view{
+  width:92%;
+  margin: 30rpx 4%;
+  padding-bottom:20rpx;
+  border-bottom:1rpx solid #afafaf;
+}
+.data-row-view{
+  width:100%;
+  display:flex;
+  font-size:28rpx;
+  font-weight:300;
+  color:#000000;
+}
+.tiny-gray-icon{
+  width:20px;
+  height:20px;
+  margin-right:50rpx;
+}
+.label-view{
+  width:92%;
+  margin: 30rpx 4%;
+  padding-bottom:20rpx;
+  border-bottom:1rpx solid #afafaf;
+}
+.label-data-row-view{
+  width:100%;
+  display:flex;
+  font-size:25rpx;
+  font-weight:350;
+  margin-bottom:20rpx;
+}
+.medium-gray-icon{
+  width:60rpx;
+  height:60rpx;
+  margin-right:20rpx;
+}
+.label-text{
+  padding-top:10rpx;
+}
+
+.rule-view{
+  width:92%;
+  margin: 30rpx 4%;
+  padding-bottom:20rpx;
+  border-bottom:1rpx solid #afafaf;
+  
+}
+.rule{
+  width:100%;
+  display:flex;
+}
+.rule-text{
+  width:98%;
+  font-size:25rpx;
+  font-weight:350;
+  margin-bottom:20rpx;
+  padding-top:15rpx;
+}
+.about-view{
+  width:92%;
+  margin: 30rpx 4%;
+  border-bottom:10rpx solid #9f9999;
+  padding-bottom:20rpx;
+}
+.large-title{
+  color:#000000;
+  font-size:25px;
+  font-weight:500;
+}
+.detail-text{
+  font-weight:300;
+  font-size:30rpx;
+}
+.com-data-view{
+  width:100%;
+  display:flex;
+}
+.total-score-view{
+  font-size:38px;
+  font-weight:500;
+  width:20%;
+}
+.comment-data-view{
+  width:40%;
+}
+.comment-num-view{
+  width:100%;
+  font-size:25rpx;
+  font-weight:350;
+}
+.star{
+  width:150rpx;
+  height:40rpx;
+}
+.comment-view{
+  width:100%;
+  display:flex;
+  padding-bottom:25rpx;
+  border-bottom:1rpx solid #9f9999;
+}
+.avatar-view{
+  width:15%;
+}
+.avatar{
+  width:75rpx;
+  height:75rpx;
+  border-radius: 50%;
+}
+.comment-detail-view{
+  width:80%;
+  padding-left:20rpx;
+}
+.name-view{
+  font-size:30rpx;
+}
+.tiny-star{
+  width:130rpx;
+  height:30rpx;
+}
+.star_date_view{
+  width:80%;
+  display:flex;
+}
+.date-view{
+  font-size:25rpx;
+  font-weight:350;
+  padding-top:10rpx;
+  margin-left:20rpx;
+}
+.comment-text-view{
+  font-size:25rpx;
+  font-weight:350;
+}
+.more-comment-view{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  font-size:35rpx;
+  font-weight:400;
+  padding-top:20rpx;
+}
+.taocan-view{
+  width:92%;
+  margin: 30rpx 4%;
+  background-color: #fafafa;
+  border:1rpx solid #9f9999;
+  padding-top:30rpx;
+}
+.taocan-name-view{
+  margin-left:30rpx;
+  font-size:32rpx;
+  font-weight:500;
+}
+.taocan-price-view{
+  display:flex;
+}
+.taocan-old-price-view{
+  text-decoration: line-through;
+  font-size:25rpx;
+  font-weight:400;
+  color:#707070;
+  margin-left:40rpx;
+  padding-top:5rpx;
+}
+.taocan-new-price-view{
+  font-size:32rpx;
+  font-weight:500;
+  color:#f8572e;
+  margin-left:20rpx;
+}
+.taocan-rule-view{
+  margin-left:4%;
+}
+
+.taocan-block-view{
+  width:92%;
+  margin: 30rpx 4%;
+  border-bottom:10rpx solid #9f9999;
+}
+.about-medium-title-view{
+  margin-top:40rpx;
+  font-size:38rpx;
+  font-weight:400;
+}
+
+.map-view{
+  margin-top:40rpx;
+  height:500rpx;
+  display:flex;
+}
+.mymap{
+  height:500rpx;
+  width:500rpx;
+}
+.bottom-bar-go{
+  position:fixed;
+  top:92%;
+  width:100%;
+  height:8%;
+  display:flex;
+}
+.view-btn-2{
+  width:100%;
+  height:100%;
+  background-color: #917651;
+}
+.yueta{
+  width:100%;
+  height:100%;
+  background-color: #f8572e;
+  color:#ffffff;
+}
+
+.foot-view{
+  height:150rpx;
+}
