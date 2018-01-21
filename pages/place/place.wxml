@@ -24,7 +24,7 @@
         <view class="city-round-view">
           <image src="../../images/round2.png" class="city-round-image" data-src="{{item.purl}}" />
         </view>
-        <view class="option-name-view">
+        <view class="option-name-view" bindtap="to_food">
           地道美食 & 餐饮
         </view>
         <view class="option-right-view">

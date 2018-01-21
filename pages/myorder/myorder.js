@@ -61,15 +61,5 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  },
-  to_list:function(e){
-    wx.navigateTo({
-      url: '../list/list',
-    })
-  },
-  to_food: function (e) {
-    wx.navigateTo({
-      url: '../food/food',
-    })
   }
 })

@@ -161,14 +161,21 @@
 
 
 
-
+.type-top-scroll{
+  width:100%;
+  white-space: nowrap;
+  display:flex;
+  height:100rpx;
+  background-color:white;
+  padding:10rpx 0;
+}
 .type-scroll{
   width:100%;
   white-space: nowrap;
   display:flex;
   height:100rpx;
   background-color:white;
-  border-top: solid 1rpx #aaa;
+  border-bottom: solid 1rpx #aaa;
   padding:10rpx 0;
 }
 .type-item{
@@ -224,7 +231,7 @@
   color:white;
   font-size:25rpx;
   position:absolute;
-  top:10rpx;
+  left:40rpx;
   margin-top:20rpx;
   margin-left:40rpx;
 }
