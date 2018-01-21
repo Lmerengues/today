@@ -7,4 +7,15 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
+  overflow: hidden;
+  background-color: #f2f2f2;
 } 
+/**app.wxss**/
+.calendar_container {
+  overflow: hidden;
+  font-size: 16px;
+  color: #333;
+  background-color: #eee;
+  font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, 
+        "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
+}

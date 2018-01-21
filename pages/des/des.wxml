@@ -13,24 +13,48 @@
     <view class="white-view"></view>
 
     <view class="hot-view" wx:if="{{type == 0}}">
-      <view class="hot-place-view">
+      <view class="hot-place-view" bindtap="toplace">
         <view class="hot-place-title-view">冲绳</view>
         <image src="https://mina.mapglory.com/static/images/laneway/1.jpg" class="hot-place-image"   bindlongpress='image_longPress' data-src="{{item.purl}}" />
         
       </view>
 
-      <view class="hot-place-view">
+      <view class="hot-place-view" bindtap="toplace">
         <view class="hot-place-title-view">曼谷</view>
         <image src="https://mina.mapglory.com/static/images/laneway/2.jpg" class="hot-place-image"   bindlongpress='image_longPress' data-src="{{item.purl}}" />
         
       </view>
 
-      <view class="hot-place-view">
+      <view class="hot-place-view" bindtap="toplace">
         <view class="hot-place-title-view">香港</view>
         <image src="https://mina.mapglory.com/static/images/laneway/3.jpg" class="hot-place-image"   bindlongpress='image_longPress' data-src="{{item.purl}}" />
        
       </view>
     </view>
+
+
+    <view class="search-box" wx:if="{{type == 1}}">
+  <input placeholder="中文/拼音/首字母" class='search-input' bindinput='bindSarchInput' placeholder-class='search-input-placeholder' />
+</view>
+<view class='a-z' wx:if="{{type == 1}}">
+  <view wx:for="{{cityAZ}}" wx:key="unique">
+    <view data-id='{{item.cityName}}' bindtap='bindAZ'>{{item.cityName}}</view>
+  </view>
+</view>
+<view class='city-item-content' wx:if="{{type == 1}}">
+  <view wx:for="{{cityResults}}" wx:key="unique">
+    <view wx:if="{{item.cityPinYin.length > 1}}" class='city-item' data-cityname='{{item.cityName}}' bindtap='citySelected'>{{item.cityName}}</view>
+    <view wx:else class='city-item-A-Z' data-cityname='{{item.cityName}}'>{{item.cityName}}</view>
+    <!-- <view data-cityname='{{item.cityName}}' bindtap='citySelected' >{{item.cityName}}</view> -->
+  </view>
+</view>
+
+
+
+
+
+
+
 </scroll-view>
 
 

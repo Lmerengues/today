@@ -1,6 +1,9 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/list/list",
+    
+    "pages/place/place",
     "pages/citys/citys",
     "pages/comment/comment",
     "pages/success/success",
@@ -48,5 +51,6 @@
         "text": "我的账户"
       }
     ]
-  }
+  },
+  "debug":true
 }

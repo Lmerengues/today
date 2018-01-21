@@ -1,0 +1,159 @@
+<!--index.wxml-->
+<view class="calendar_container">
+  <!--<scroll-view style="height: {{windowHeight}}px; width: {{windowWidth}}px;" scroll-y="true" bindscrolltolower="loadMore">-->
+    <view class="date-choose shrink">
+      <view class="data-month">{{dateMonth}}</view>
+      <swiper class="date-choose-swiper" indicator-dots="{{false}}" current="{{swiperCurrent}}" bindchange="dateSwiperChange">
+        <block wx:for="{{dateList}}" wx:for-item="date" wx:key="date.id">
+          <swiper-item class="swiper-item">
+            <view class="weekday">
+              <block wx:for-item="weekday" wx:for="{{dateListArray}}" wx:key="{{index}}">
+                <text class="week">{{weekday}}</text>
+              </block>
+            </view>
+            <view class="dateday">
+              <block wx:for="{{date.days}}" wx:for-item="day" wx:key="{{day.id}}">
+                <text class="day" id="{{day.id}}" bindtap="chooseDate">
+                  <text class="{{dateCurrentStr==day.id?'active':''}}">{{day.day}}</text>
+                </text>
+              </block>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <scroll-view scroll-x="true" class="type-scroll">
+      <view class="type-item-active">
+        全部
+      </view>
+      <view class="type-item">
+        亲子同乐
+      </view>
+      <view class="type-item">
+        户外活动
+      </view>
+      <view class="type-item">
+        亲子同乐
+      </view>
+      <view class="type-item">
+        户外活动
+      </view>
+    </scroll-view>
+
+    <view class="all-activity-view">
+      <view class="activity-view" bindtap="binddetail">
+          <view class="activity-img-view">
+            <image src="https://mina.mapglory.com/static/images/laneway/1.jpg" class="activity-img" data-src="{{item.purl}}" />
+            <view class="activity-location-view">澳门</view>
+          </view>
+
+          <view class="activity-detail-view">
+            <view class="activity-title-view">
+              香港迪士尼乐园餐券
+            </view>
+            <view class="activity-data-view">
+              <view class="activity-score-view">
+                4.5
+              </view>
+              <view class="activity-join-view">10K+人参加过</view>
+            </view>
+            
+            <view class="activity-tail-view">
+              <view class="activity-price-view">
+                <view class="old-price-view">￥75</view>
+                <view class="new-price-view">￥72</view>
+              </view>
+              <view class="activity-earliest-date-view">
+                最早可预订日期：今日
+              </view>
+            </view>
+          </view>
+      </view>
+            <view class="activity-view" bindtap="binddetail">
+          <view class="activity-img-view">
+            <image src="https://mina.mapglory.com/static/images/laneway/1.jpg" class="activity-img" data-src="{{item.purl}}" />
+            <view class="activity-location-view">澳门</view>
+          </view>
+
+          <view class="activity-detail-view">
+            <view class="activity-title-view">
+              香港迪士尼乐园餐券
+            </view>
+            <view class="activity-data-view">
+              <view class="activity-score-view">
+                4.5
+              </view>
+              <view class="activity-join-view">10K+人参加过</view>
+            </view>
+            
+            <view class="activity-tail-view">
+              <view class="activity-price-view">
+                <view class="old-price-view">￥75</view>
+                <view class="new-price-view">￥72</view>
+              </view>
+              <view class="activity-earliest-date-view">
+                最早可预订日期：今日
+              </view>
+            </view>
+          </view>
+      </view>
+            <view class="activity-view" bindtap="binddetail">
+          <view class="activity-img-view">
+            <image src="https://mina.mapglory.com/static/images/laneway/1.jpg" class="activity-img" data-src="{{item.purl}}" />
+            <view class="activity-location-view">澳门</view>
+          </view>
+
+          <view class="activity-detail-view">
+            <view class="activity-title-view">
+              香港迪士尼乐园餐券
+            </view>
+            <view class="activity-data-view">
+              <view class="activity-score-view">
+                4.5
+              </view>
+              <view class="activity-join-view">10K+人参加过</view>
+            </view>
+            
+            <view class="activity-tail-view">
+              <view class="activity-price-view">
+                <view class="old-price-view">￥75</view>
+                <view class="new-price-view">￥72</view>
+              </view>
+              <view class="activity-earliest-date-view">
+                最早可预订日期：今日
+              </view>
+            </view>
+          </view>
+      </view>
+            <view class="activity-view" bindtap="binddetail">
+          <view class="activity-img-view">
+            <image src="https://mina.mapglory.com/static/images/laneway/1.jpg" class="activity-img" data-src="{{item.purl}}" />
+            <view class="activity-location-view">澳门</view>
+          </view>
+
+          <view class="activity-detail-view">
+            <view class="activity-title-view">
+              香港迪士尼乐园餐券
+            </view>
+            <view class="activity-data-view">
+              <view class="activity-score-view">
+                4.5
+              </view>
+              <view class="activity-join-view">10K+人参加过</view>
+            </view>
+            
+            <view class="activity-tail-view">
+              <view class="activity-price-view">
+                <view class="old-price-view">￥75</view>
+                <view class="new-price-view">￥72</view>
+              </view>
+              <view class="activity-earliest-date-view">
+                最早可预订日期：今日
+              </view>
+            </view>
+          </view>
+      </view>
+    </view>
+  <!--</scroll-view>-->
+</view>

@@ -1,0 +1,301 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+
+.mycontainer{
+  padding:0 0;
+  background-color: #eeeeee;
+  height:1300rpx;
+}
+.my-scroll{
+  height:100%;
+  width:100%;
+}
+
+.foot-view{
+  height:300rpx;
+}
+.city-img{
+  width:100%;
+  height:400rpx;
+}
+.city-img-image{
+  width:100%;
+  height:100%;
+}
+.city-option-view{
+  background-color: white;
+  border-radius: 1%;
+  position:absolute;
+  width:88%;
+  margin: 0 3%;
+  padding:30rpx 3%;
+  top:360rpx;
+}
+.city-name-view{
+  font-size:55rpx;
+  padding-left:3%;
+  margin-bottom:40rpx;
+}
+.city-option{
+  width:100%;
+  display:flex;
+}
+.city-round-view{
+  padding-left:3%;
+  width:12%;
+}
+.city-round-image{
+  height:65rpx;
+  width:65rpx;
+}
+.option-name-view{
+  padding-top:10rpx;
+  padding-left:3%;
+  width:72%;
+  font-weight:400;
+  font-size:30rpx;
+}
+.city-right-image{
+  width:30rpx;
+  height:30rpx;
+  padding-top:5rpx;
+}
+
+.all-activity-view{
+  width:100%;
+  display:flex;
+  justify-content: center;
+  font-weight:400;
+  font-size:30rpx;
+  border-top : solid 1rpx #aaa;
+  margin-top:20rpx;
+  padding-top:15rpx;
+
+}
+
+.hot-place-view{
+  width:96%;
+  padding:0rpx 2%;
+  margin-top:450rpx;
+}
+.hot-place-title-view{
+  width:100%;
+  display:flex;
+  margin-bottom:20rpx;
+}
+.hot-place-big-title{
+  width:80%;
+  font-weight:400;
+  color:#000000;
+  font-size:35rpx;
+}
+.hot-place-all{
+  width:20%;
+  font-weight:400;
+  color:#707070;
+  font-size:25rpx;
+}
+.places-scroll{
+  width:100%;
+  white-space: nowrap;
+  display:flex;
+  height:500rpx;
+}
+.place-view{
+  width:350rpx;
+  height:100%;
+  display:inline-block;
+}
+.place-view-view{
+  width:100%;
+  height:100%;
+  display:flex;
+}
+.place-image{
+  width:90%;
+  height:460rpx;
+}
+.place-name-view{
+  font-weight:500;
+  color:#ffffff;
+  font-size:25rpx;
+  position:absolute;
+  top:420rpx;
+  margin-left:20rpx;
+}
+
+
+
+.hot-sell-view{
+  width:94%;
+  padding:0rpx 3%;
+  margin-top:450rpx;
+}
+
+.hot-sell-title-view{
+  width:100%;
+  display:flex;
+  margin-bottom:20rpx;
+}
+.hot-sell-big-title{
+  width:80%;
+  font-weight:400;
+  color:#000000;
+  font-size:35rpx;
+}
+.hot-sell-scroll{
+  width:100%;
+  white-space: nowrap;
+  display:flex;
+  height:800rpx;
+}
+.activity-view{
+  width:650rpx;
+  height:100%;
+  display:inline-block;
+  margin-right:20rpx;
+}
+.activity-img-view{
+  width:100%;
+  height:60%;
+}
+.activity-img{
+  width:100%;
+  height:100%;
+}
+.activity-location-view{
+  color:white;
+  font-size:25rpx;
+  position:absolute;
+  top:10rpx;
+  margin-left:20rpx;
+}
+.activity-detail-view{
+  padding: 20rpx 4%;
+  width:92%;
+  background-color: white;
+}
+.activity-title-view{
+  font-size:32rpx;
+  font-weight:500;
+  width:100%;
+}
+.activity-data-view{
+  padding: 10rpx 0;
+  width:100%;
+  display:flex;
+}
+.activity-score-view{
+  width:20%;
+  font-size:25rpx;
+  border-right: 1rpx solid #9f9999;
+  font-weight:400;
+  color:#707070;
+}
+.activity-join-view{
+  font-size:25rpx;
+  padding-left:20rpx;
+  font-weight:400;
+  color:#707070;
+}
+.activity-tail-view{
+  width:100%;
+  display:flex;
+}
+.activity-price-view{
+  margin-top:30rpx;
+  width:60%;
+}
+.old-price-view{
+  text-decoration: line-through;
+  font-size:25rpx;
+  font-weight:400;
+  color:#707070;
+}
+.new-price-view{
+  font-size:32rpx;
+  font-weight:500;
+  width:100%;
+}
+.activity-earliest-date-view{
+  width:40%;
+  font-size:25rpx;
+  font-weight:400;
+  color:#499e84;
+  padding-top:65rpx;
+}
+
+
+.hot-theme-view{
+  width:96%;
+  padding:0rpx 2%;
+}
+
+.hot-theme-title-view{
+  width:100%;
+  display:flex;
+  margin-bottom:20rpx;
+}
+.hot-theme-big-title{
+  width:80%;
+  font-weight:400;
+  color:#000000;
+  font-size:35rpx;
+}
+.hot-theme-scroll{
+  width:100%;
+  white-space: nowrap;
+  display:flex;
+  height:800rpx;
+}
+
+.hot-recommend-view{
+  width:96%;
+  padding:0rpx 2%;
+}
+
+.hot-recommend-title-view{
+  width:100%;
+  display:flex;
+  margin-bottom:20rpx;
+}
+.hot-recommend-big-title{
+  width:80%;
+  font-weight:400;
+  color:#000000;
+  font-size:35rpx;
+}
+.hot-recommend-scroll{
+  width:100%;
+  white-space: nowrap;
+  display:flex;
+  height:800rpx;
+}
+.btn-all{
+  width:94%;
+  margin: 0 3%;
+  background-color: #ff5139;
+  color:white;
+  font-size:30rpx;
+  font-weight:400;
+}
