@@ -1,6 +1,29 @@
 <!--index.wxml-->
 <view class="container mycontainer">
   <scroll-view scroll-y="true" class="my-scroll">
+    <view class="my-info-view">
+      <view class="name-avatar-view">
+        <view class="name-view">
+          马正一
+        </view>
+        <view class="avatar-view">
+          <image class="userinfo-avatar" src="../../images/ronaldo.jpeg"/>
+        </view>
+      </view>
+
+      <view class="my-num-view">
+        <view class="my-score-view">
+          <view class="my-score-data-view">0</view>
+          <view class="my-score-title-view">积分</view>
+        </view>
+        <view class="my-code-view">
+          <view class="my-code-data-view">0</view>
+          <view class="my-code-title-view">优惠码</view>
+        </view>
+      
+      </view>
+    </view>
+
     <view class="order-view">
       <view class="no_time_view">
         <view class="no-view">订单号:ACAUDBA213</view>

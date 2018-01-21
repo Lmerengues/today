@@ -10,6 +10,7 @@
   height: 128rpx;
   margin: 20rpx;
   border-radius: 50%;
+  border: solid 5rpx white;
 }
 
 .userinfo-nickname {
@@ -158,4 +159,58 @@
   display:flex;
   padding-top:20rpx;
   padding-bottom:20rpx;
+}
+
+.my-info-view{
+  background-color: #fd8f5b;
+  width:100%;
+  height:400rpx;
+  padding-top:50rpx;
+}
+.name-avatar-view{
+  width:95%;
+  padding-left:5%;
+  display:flex;
+}
+.name-view{
+  font-size:60rpx;
+  color:white;
+  font-weight:500;
+  width:70%;
+  padding-top:40rpx;
+}
+.avatar-view{
+  width:30%;
+}
+.my-num-view{
+  width:90%;
+  padding:0 5%;
+  display:flex;
+}
+.my-score-view{
+  width:20%;
+  border-right:solid 1rpx white;
+}
+.my-score-data-view{
+  font-size:60rpx;
+  color:white;
+  font-weight:500;
+}
+.my-score-title-view{
+  font-size:30rpx;
+  color:white;
+  font-weight:400;
+}
+.my-code-view{
+  margin-left:10%;
+}
+.my-code-data-view{
+  font-size:60rpx;
+  color:white;
+  font-weight:500;
+}
+.my-code-title-view{
+  font-size:30rpx;
+  color:white;
+  font-weight:400;
 }
