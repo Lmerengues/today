@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/citys/citys",
     "pages/comment/comment",
     "pages/success/success",
     "pages/contact/contact",
