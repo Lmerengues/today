@@ -21,66 +21,30 @@
       <view class="about-title-view">
         <text class="large-title">套餐可选</text>
       </view>
-      <view class="taocan-view">
+      <view class="taocan-view" wx:for="{{act_package}}">
         <view class="head-view">
           <view class="left-view">
-            <view class="taocan-name-view">1日门票</view>
+            <view class="taocan-name-view">{{item.ptitle}}</view>
             <view class="taocan-price-view">
-            <view class="taocan-new-price-view">￥72</view>
-              <view class="taocan-old-price-view">￥75</view>
+            <view class="taocan-new-price-view">￥{{item.pprice}}</view>
+              <view class="taocan-old-price-view">￥{{item.pprice_old}}</view>
             </view>
           </view>
           <view class="right-view">
-            <view class="label" bindtap="yue">
+            <view class="label" bindtap="yue" data-pno="{{item.pno}}">
               <text class="label-text">预约</text>
             </view>
           </view>
         </view>
         <view class="taocan-rule-view">
-          <view class="rule">
+          <view class="rule" wx:for="{{item.rule}}">
             <view class="dot">·</view>
-            <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
-           </view>
-          </view>
-          <view class="rule">
-            <view class="dot">·</view>
-            <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
+            <view class="rule-text">{{item.rdetail}}    
            </view>
           </view>
         </view>
       </view>
-
-      <view class="taocan-view">
-        <view class="head-view">
-          <view class="left-view">
-            <view class="taocan-name-view">1日门票</view>
-            <view class="taocan-price-view">
-            <view class="taocan-new-price-view">￥72</view>
-              <view class="taocan-old-price-view">￥75</view>
-            </view>
-          </view>
-          <view class="right-view">
-            <view class="label" bindtap="yue">
-              <text class="label-text">预约</text>
-            </view>
-          </view>
-        </view>
-        <view class="taocan-rule-view">
-          <view class="rule">
-            <view class="dot">·</view>
-            <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
-           </view>
-          </view>
-          <view class="rule">
-            <view class="dot">·</view>
-            <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
-           </view>
-          </view>
-        </view>
-      </view>
-      
     </view>
-
     <view class="foot-view"></view>
   </scroll-view>
 </view>

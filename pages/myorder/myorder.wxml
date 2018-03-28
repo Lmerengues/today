@@ -4,16 +4,16 @@
     <view class="my-info-view">
       <view class="name-avatar-view">
         <view class="name-view">
-          马正一
+          {{user_info.unickName}}
         </view>
         <view class="avatar-view">
-          <image class="userinfo-avatar" src="../../images/ronaldo.jpeg"/>
+          <image class="userinfo-avatar" src="{{user_info.uavatarurl}}"/>
         </view>
       </view>
 
-      <view class="my-num-view">
+      <!--view class="my-num-view">
         <view class="my-score-view">
-          <view class="my-score-data-view">0</view>
+          <view class="my-score-data-view">{{user_info.uscore}}</view>
           <view class="my-score-title-view">积分</view>
         </view>
         <view class="my-code-view">
@@ -21,28 +21,28 @@
           <view class="my-code-title-view">优惠码</view>
         </view>
       
-      </view>
+      </view-->
     </view>
 
-    <view class="order-view">
+    <view class="order-view" wx:for="{{order_info}}">
       <view class="no_time_view">
-        <view class="no-view">订单号:ACAUDBA213</view>
-        <view class="time-view">购买时间：2018年1月20日 下午9:57
+        <view class="no-view">订单号:{{item.oid}}</view>
+        <view class="time-view">购买时间：{{item.otime}}
         </view>
       </view>
       <view class="ticket-view">
         <view class="ticket-img-view">
-          <image src="https://mina.mapglory.com/static/images/laneway/3.jpg" class="ticket-img" data-src="{{item.purl}}" />
+          <image src="{{item.aurl}}" class="ticket-img" data-src="{{item.purl}}" />
         </view>
         <view class="ticket-info-view">
           <view class="ticket-name-view">
-            北京MIX CLUB无限畅饮
+            {{item.atitle1}}
           </view>
           <view class="ticket-num-view">
-             1 x 每人
+             {{item.odes}}
           </view>
           <view class="ticket-date-view">
-            2018年1月23日
+            {{item.odate}}
           </view>
         </view>
       </view>
@@ -57,9 +57,11 @@
           如有疑问，请与我的客服联系
         </view>
       </view>
-      <view class="refund-view-1">
-          <button class="btn-refund">退款</button>
-      </view>
+      <!--view class="refund-view-1">
+          <button class="btn-refund" wx:if="{{item.ostatus==1}}" data-oid="{{item.oid}}" bindtap="bingredfund">退款</button>
+          <button class="btn-refund" wx:if="{{item.ostatus==2}}" data-oid="{{item.oid}}">退款中</button>
+
+      </view-->
       <!--view class="refund-view-2">
         <view class="refund-info-view">退款中</view>
         <view class="refund-right-view"></view>
@@ -70,124 +72,15 @@
             支付金额
           </view>
           <view class="total-info-num-view">
-            ￥180
+            ￥{{item.ototal}}
           </view>
         </view>
-        <view class="look-more-view">
+        <!--view class="look-more-view">
           <button class="btn-refund">查看订单收据</button>
-        </view>
+        </view-->
       </view>
     </view>
 
-        <view class="order-view">
-      <view class="no_time_view">
-        <view class="no-view">订单号:ACAUDBA213</view>
-        <view class="time-view">购买时间：2018年1月20日 下午9:57
-        </view>
-      </view>
-      <view class="ticket-view">
-        <view class="ticket-img-view">
-          <image src="https://mina.mapglory.com/static/images/laneway/3.jpg" class="ticket-img" data-src="{{item.purl}}" />
-        </view>
-        <view class="ticket-info-view">
-          <view class="ticket-name-view">
-            北京MIX CLUB无限畅饮
-          </view>
-          <view class="ticket-num-view">
-             1 x 每人
-          </view>
-          <view class="ticket-date-view">
-            2018年1月23日
-          </view>
-        </view>
-      </view>
-      <view class="flag-view">
-        <view class="flag-icon-view">
-          <icon type="success" size="24"/>
-        </view>
-        <view class="flag-info-view">
-          已成功
-        </view>
-        <view class="flag-tip-view">
-          如有疑问，请与我的客服联系
-        </view>
-      </view>
-      <view class="refund-view-1">
-          <button class="btn-refund">退款</button>
-      </view>
-      <!--view class="refund-view-2">
-        <view class="refund-info-view">退款中</view>
-        <view class="refund-right-view"></view>
-      </view-->
-      <view class="total-view">
-        <view class="total-info-view">
-          <view class="total-info-title-view">
-            支付金额
-          </view>
-          <view class="total-info-num-view">
-            ￥180
-          </view>
-        </view>
-        <view class="look-more-view">
-          <button class="btn-refund">查看订单收据</button>
-        </view>
-      </view>
-    </view>
-
-        <view class="order-view">
-      <view class="no_time_view">
-        <view class="no-view">订单号:ACAUDBA213</view>
-        <view class="time-view">购买时间：2018年1月20日 下午9:57
-        </view>
-      </view>
-      <view class="ticket-view">
-        <view class="ticket-img-view">
-          <image src="https://mina.mapglory.com/static/images/laneway/3.jpg" class="ticket-img" data-src="{{item.purl}}" />
-        </view>
-        <view class="ticket-info-view">
-          <view class="ticket-name-view">
-            北京MIX CLUB无限畅饮
-          </view>
-          <view class="ticket-num-view">
-             1 x 每人
-          </view>
-          <view class="ticket-date-view">
-            2018年1月23日
-          </view>
-        </view>
-      </view>
-      <view class="flag-view">
-        <view class="flag-icon-view">
-          <icon type="success" size="24"/>
-        </view>
-        <view class="flag-info-view">
-          已成功
-        </view>
-        <view class="flag-tip-view">
-          如有疑问，请与我的客服联系
-        </view>
-      </view>
-      <view class="refund-view-1">
-          <button class="btn-refund">退款</button>
-      </view>
-      <!--view class="refund-view-2">
-        <view class="refund-info-view">退款中</view>
-        <view class="refund-right-view"></view>
-      </view-->
-      <view class="total-view">
-        <view class="total-info-view">
-          <view class="total-info-title-view">
-            支付金额
-          </view>
-          <view class="total-info-num-view">
-            ￥180
-          </view>
-        </view>
-        <view class="look-more-view">
-          <button class="btn-refund">查看订单收据</button>
-        </view>
-      </view>
-    </view>
     
     <view class="foot-view"></view>
   </scroll-view>

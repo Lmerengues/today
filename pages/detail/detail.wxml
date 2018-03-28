@@ -4,158 +4,120 @@
     <view class="swiper-view">
       <swiper indicator-dots="{{indicatorDots}}"
       autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="#ffffff" circular="true" class="myswiper">
-          <swiper-item class="my-swiper-item">
-              <image src="https://mina.mapglory.com/static/images/canaan/5.jpeg" class="room-image"   bindlongpress='image_longPress' data-src="" />
+          <swiper-item class="my-swiper-item" wx:for="{{act_img}}">
+              <image src="{{item.iurl}}" class="room-image"   bindlongpress='image_longPress' data-src="" />
           </swiper-item>
         </swiper>
     </view>
 
     <view class="basic-info-view">
-      <view class="big-title-view">怀托莫萤火虫洞穴之旅</view>
-      <view class="medium-title-view">探索光怪陆离的地下岩洞世界</view>
-      <view class="price-view">￥236</view>
-      <view class="beizhu-view">KLOOK低价保证</view>
+      <view class="big-title-view">{{act.atitle1}}</view>
+      <view class="medium-title-view">{{act.atitle2}}</view>
+      <view class="price-view">￥{{act.aprice}}</view>
+      <view class="beizhu-view">真约推荐</view>
     </view>
 
     <view class="data-view">
       <view class="data-row-view">
         <image src="../../images/icon5.png" class="tiny-gray-icon"/>
-        1.6K人参加过
+        {{act.anum}}人参加过
       </view>
-      <view class="data-row-view">
+      <!--view class="data-row-view">
         <image src="../../images/icon6.png" class="tiny-gray-icon"/>
-        最早可预订日期:01月23日
-      </view>
+        最早可预订日期:{{act.adate}}
+      </view-->
       <view class="data-row-view">
         <image src="../../images/icon7.png" class="tiny-gray-icon"/>
-        24小时内确认订单
+        {{act.ahour}}小时内确认订单
       </view>
     </view>
 
     <view class="label-view">
-      <view class="label-data-row-view">
-        <image src="../../images/icon8.png" class="medium-gray-icon"/>
-        <text class="label-text">1.6K人参加过</text>
-      </view>
-      <view class="label-data-row-view">
-        <image src="../../images/icon8.png" class="medium-gray-icon"/>
-        <text class="label-text">1.6K人参加过</text>
-      </view>
-      <view class="label-data-row-view">
-        <image src="../../images/icon8.png" class="medium-gray-icon"/>
-        <text class="label-text">1.6K人参加过</text>
+      <view class="label-data-row-view" wx:for="{{act_rule}}">
+        <view style="width:8%;">
+          <image src="../../images/icon7.png" class="medium-gray-icon" style="width:20px;height:20px;"/>
+        </view>
+        <view style="width:90%;">
+          <text class="label-text">{{item.rdetail}}</text>
+        </view>
       </view>
     </view>
 
     <view class="rule-view">
-      <view class="rule">
+      <view class="rule" wx:for="{{act_ins}}">
         <view class="dot">·</view>
-        <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！</view>
+        <view class="rule-text">{{item.idetail}}</view>
       </view>
 
-      <view class="rule">
-        <view class="dot">·</view>
-        <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！</view>
-      </view>
-
-      <view class="rule">
-        <view class="dot">·</view>
-        <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！</view>
-      </view>
     </view>
 
-    <view class="about-view">
+    <!--view class="about-view">
       <view class="about-title-view">
         <text class="large-title">活动评价</text>
       </view>
       <view class="com-data-view">
-        <view class="total-score-view">4.8</view>
+        <view class="total-score-view">{{act.ascore}}</view>
         <view class="comment-data-view">
           <view class="comment-img-view">
             <image src="../../images/star.png" class="star"/>
           </view>
-          <view class="comment-num-view">31280条评价</view>
+          <view class="comment-num-view">{{comment_num.cou}}条评价</view>
         </view>
       </view>
       <view class="comment-view">
         <view class="avatar-view">
-          <image src="../../images/logo.jpeg" class="avatar"/>
+          <image src="{{comment.uavatarurl}}" class="avatar"/>
         </view>
         <view class="comment-detail-view">
-          <view class="name-view">ZI HUI</view>
+          <view class="name-view">{{comment.unickName}}</view>
           <view class="star_date_view">
             <view class="tiny-star-view">
               <image src="../../images/star.png" class="tiny-star"/>
             </view>
-            <view class="date-view">2018年1月20日</view>
+            <view class="date-view">{{comment.cdate}}</view>
           </view>
-          <view class="comment-text-view">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！
+          <view class="comment-text-view">{{comment.cdetail}}
           </view>
         </view>
       </view>
       <view class="more-comment-view" bindtap="more_comment">
         查看全部评价
       </view>
-    </view>
+    </view-->
 
 
     <view class="taocan-block-view">
       <view class="about-title-view">
         <text class="large-title">套餐详情</text>
       </view>
-      <view class="taocan-view">
-        <view class="taocan-name-view">1日门票</view>
+      <view class="taocan-view" wx:for="{{act_package}}">
+        <view class="taocan-name-view">{{item.ptitle}}</view>
         <view class="taocan-price-view">
-         <view class="taocan-new-price-view">￥72</view>
-          <view class="taocan-old-price-view">￥75</view>
+         <view class="taocan-new-price-view">￥{{item.pprice}}</view>
+          <view class="taocan-old-price-view">￥{{item.pprice_old}}</view>
         </view>
         <view class="taocan-rule-view">
-          <view class="rule">
+          <view class="rule" wx:for="{{item.rule}}">
             <view class="dot">·</view>
-            <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
-           </view>
-          </view>
-          <view class="rule">
-            <view class="dot">·</view>
-            <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
+            <view class="rule-text">{{item.rdetail}}    
            </view>
           </view>
         </view>
       </view>
-
-      <view class="taocan-view">
-        <view class="taocan-name-view">1日门票</view>
-        <view class="taocan-price-view">
-         <view class="taocan-new-price-view">￥72</view>
-          <view class="taocan-old-price-view">￥75</view>
-        </view>
-        <view class="taocan-rule-view">
-          <view class="rule">
-            <view class="dot">·</view>
-            <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
-           </view>
-          </view>
-          <view class="rule">
-            <view class="dot">·</view>
-            <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
-           </view>
-          </view>
-        </view>
-      </view>
-      
     </view>
-
-
     <view class="about-view">
       <view class="about-title-view">
         <text class="large-title">活动概览</text>
       </view>
       <view class="about-detail-view">
-        <text class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！</text>
+        <text class="rule-text">{{act.adetail}}</text>
+      </view>
+      <view class="about-img-view">
+        <image wx:for="{{act_img}}" src="{{item.iurl}}" class="about-image" bindlongpress='image_longPress' data-src="" />
       </view>
     </view>
 
-    <view class="about-view">
+    <!--view class="about-view">
       <view class="about-title-view">
         <text class="large-title">预订须知</text>
       </view>
@@ -163,28 +125,18 @@
       <view class="about-medium-title-view">
         确认详情：
       </view>
-      <view class="rule">
+      <view class="rule" wx:for="{{act_order_1}}">
         <view class="dot">·</view>
-        <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
-        </view>
-      </view>
-      <view class="rule">
-        <view class="dot">·</view>
-        <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
+        <view class="rule-text">{{item.kdetail}}
         </view>
       </view>
 
       <view class="about-medium-title-view">
         注意事项
       </view>
-      <view class="rule">
+      <view class="rule" wx:for="{{act_order_2}}">
         <view class="dot">·</view>
-        <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
-        </view>
-      </view>
-      <view class="rule">
-        <view class="dot">·</view>
-        <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
+        <view class="rule-text">{{item.kdetail}}    
         </view>
       </view>
     </view>
@@ -196,70 +148,51 @@
       </view>
 
 
-      <view class="rule">
+      <view class="rule" wx:for="{{act_use_0}}">
         <view class="dot">·</view>
-        <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
-        </view>
-      </view>
-      <view class="rule">
-        <view class="dot">·</view>
-        <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
+        <view class="rule-text">{{item.kdetail}}  
         </view>
       </view>
 
       <view class="about-medium-title-view">
         开放时间
       </view>
-      <view class="rule">
+      <view class="rule" wx:for="{{act_use_1}}">
         <view class="dot">·</view>
-        <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
-        </view>
-      </view>
-      <view class="rule">
-        <view class="dot">·</view>
-        <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
+        <view class="rule-text">{{item.kdetail}}
         </view>
       </view>
 
       <view class="about-medium-title-view">
         如何前往
       </view>
-      <view class="rule">
+      <view class="rule" wx:for="{{act_use_2}}">
         <view class="dot">·</view>
-        <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
-        </view>
-      </view>
-      <view class="rule">
-        <view class="dot">·</view>
-        <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
+        <view class="rule-text">{{item.kdetail}} 
         </view>
       </view>
 
-      <!--view class="map-view">
+      <view class="map-view">
 <map id="map" longitude="{{lists.hlongitude}}" latitude="{{lists.hlatitude}}" scale="14" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" bindregionchange="regionchange" style="width:100%;height:500rpx;" show-location></map>
-      </view-->
+      </view>
     </view>
 
     <view class="about-view">
       <view class="about-title-view">
         <text class="large-title">退改须知</text>
       </view>
-
-      
-      <view class="rule">
+      <view class="rule" wx:for="{{act_ref}}">
         <view class="dot">·</view>
-        <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
+        <view class="rule-text">{{item.kdetail}}
         </view>
       </view>
-      <view class="rule">
-        <view class="dot">·</view>
-        <view class="rule-text">指定地区显示优惠阿萨德去武汉杂粮煎饼香葱进去我大伯初级中学勃不起我的怕不我佛傲视啊搜不到吧！    
-        </view>
-      </view>
-    </view>
+    </view-->
     <view class="foot-view"></view>
   </view>
   <view class="bottom-bar-go">
+    <view class="view-btn-1">
+      <button class="huishou" data-hno="{{lists.hno}}" bindtap="back_func">回到首页</button>
+    </view>
     <view class="view-btn-2">
       <button class="yueta" data-hno="{{lists.hno}}" bindtap="order_func">立即预约</button>
     </view>

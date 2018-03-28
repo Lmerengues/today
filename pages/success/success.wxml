@@ -7,10 +7,10 @@
       </view>
       <view class="success-text-view">
         <view class="success-text-title-view">
-          <text class="title-text">Klook门票预约成功！</text>
+          <text class="title-text">真约门票预约成功！</text>
         </view>
         <view class="success-text-text-view">
-          <text class="detail-text">感谢您选择了Klook!
+          <text class="detail-text">感谢您选择了真约!
           </text>
         </view>
       </view>
@@ -18,19 +18,19 @@
 
     <view class="ticket-view">
       <view class="ticket-name-view">
-        香港迪士尼乐园门票（一日/两日）
+        {{atitle}}
       </view>
       <view class="ticket-type-view">
-        1日门票
+        {{ptitle}}
       </view>
       <view class="ticket-date-view">
-        2018年1月22日
+        {{date}}
       </view>
-      <view class="ticket-num-view">
+      <!--view class="ticket-num-view">
         1x成人 1x儿童
-      </view>
+      </view-->
       <view class="ticket-money-view">
-        ￥736
+        ￥{{total}}
       </view>
     </view>
 

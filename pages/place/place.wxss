@@ -214,7 +214,6 @@
 }
 .activity-join-view{
   font-size:25rpx;
-  padding-left:20rpx;
   font-weight:400;
   color:#707070;
 }
@@ -224,7 +223,7 @@
 }
 .activity-price-view{
   margin-top:30rpx;
-  width:60%;
+  width:45%;
 }
 .old-price-view{
   text-decoration: line-through;
@@ -238,7 +237,7 @@
   width:100%;
 }
 .activity-earliest-date-view{
-  width:40%;
+  width:55%;
   font-size:25rpx;
   font-weight:400;
   color:#499e84;

@@ -13,23 +13,12 @@
     <view class="white-view"></view>
 
     <view class="hot-view" wx:if="{{type == 0}}">
-      <view class="hot-place-view" bindtap="toplace">
-        <view class="hot-place-title-view">冲绳</view>
-        <image src="https://mina.mapglory.com/static/images/laneway/1.jpg" class="hot-place-image"   bindlongpress='image_longPress' data-src="{{item.purl}}" />
+      <view class="hot-place-view" bindtap="toplace"  wx:for="{{hot_place}}" data-pno="{{item.pid}}">
+        <view class="hot-place-title-view">{{item.ptitle}}</view>
+        <image src="{{item.purl}}" class="hot-place-image"   bindlongpress='image_longPress' data-src="{{item.purl}}" />
         
       </view>
 
-      <view class="hot-place-view" bindtap="toplace">
-        <view class="hot-place-title-view">曼谷</view>
-        <image src="https://mina.mapglory.com/static/images/laneway/2.jpg" class="hot-place-image"   bindlongpress='image_longPress' data-src="{{item.purl}}" />
-        
-      </view>
-
-      <view class="hot-place-view" bindtap="toplace">
-        <view class="hot-place-title-view">香港</view>
-        <image src="https://mina.mapglory.com/static/images/laneway/3.jpg" class="hot-place-image"   bindlongpress='image_longPress' data-src="{{item.purl}}" />
-       
-      </view>
     </view>
 
 
@@ -38,22 +27,18 @@
 </view>
 <view class='a-z' wx:if="{{type == 1}}">
   <view wx:for="{{cityAZ}}" wx:key="unique">
-    <view data-id='{{item.cityName}}' bindtap='bindAZ'>{{item.cityName}}</view>
+    <view data-id='{{item.cityName}}' data-pno='{{item.pno}}' bindtap='bindAZ'>{{item.cityName}}</view>
   </view>
 </view>
 <view class='city-item-content' wx:if="{{type == 1}}">
   <view wx:for="{{cityResults}}" wx:key="unique">
-    <view wx:if="{{item.cityPinYin.length > 1}}" class='city-item' data-cityname='{{item.cityName}}' bindtap='citySelected'>{{item.cityName}}</view>
+    <view wx:if="{{item.cityPinYin.length > 1}}" class='city-item' data-cityname='{{item.cityName}}' bindtap='citySelected' data-pno='{{item.pno}}'>{{item.cityName}}</view>
     <view wx:else class='city-item-A-Z' data-cityname='{{item.cityName}}'>{{item.cityName}}</view>
     <!-- <view data-cityname='{{item.cityName}}' bindtap='citySelected' >{{item.cityName}}</view> -->
   </view>
 </view>
 
-
-
-
-
-
+    <view class="foot-view"></view>
 
 </scroll-view>
 

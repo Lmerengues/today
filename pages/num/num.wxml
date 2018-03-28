@@ -6,13 +6,13 @@
     <view class="ticket-view">
       <view class="left-view">
         <view class="ticket-name-view">
-          1日门票（有效期至6月）
+          {{package.ptitle}}
         </view>
         <view class="ticket-date-view">
-          2018年1月30日
+          {{date}}
         </view>
       </view>
-      <view class="right-view">
+      <view class="right-view" bindtap="bindRechoose">
         <view class="label">
           <text class="label-text">重新选择</text>
         </view>
@@ -26,63 +26,26 @@
     </view>
 
 
-    <view class="ticket-num-view">
+    <view class="ticket-num-view" wx:for="{{ticket}}">
       <view class="num-left-view">
         <view class="ticket-name-view">
-          1日门票（有效期至6月）
+          {{item.ttitle}}
         </view>
         <view class="ticket-date-view">
-          2018年1月30日
+          {{date}}
         </view>
       </view>
       <view class="num-right-view">
-        <view class="num-view">0</view>
-        <view class="num-minus">
+        <view class="num-view">{{numofticket[item.tno]}}</view>
+        <view class="num-minus" bindtap='bindMinus' data-tno="{{item.tno}}">
           <text class="oper">-</text>
         </view>
-        <view class="num-plus">
+        <view class="num-plus" bindtap='bindPlus' data-tno="{{item.tno}}">
           <text class="oper">+</text>
         </view>
       </view>
     </view>
-    <view class="ticket-num-view">
-      <view class="num-left-view">
-        <view class="ticket-name-view">
-          1日门票（有效期至6月）
-        </view>
-        <view class="ticket-date-view">
-          2018年1月30日
-        </view>
-      </view>
-      <view class="num-right-view">
-        <view class="num-view">0</view>
-        <view class="num-minus">
-          <text class="oper">-</text>
-        </view>
-        <view class="num-plus">
-          <text class="oper">+</text>
-        </view>
-      </view>
-    </view>
-    <view class="ticket-num-view">
-      <view class="num-left-view">
-        <view class="ticket-name-view">
-          1日门票（有效期至6月）
-        </view>
-        <view class="ticket-date-view">
-          2018年1月30日
-        </view>
-      </view>
-      <view class="num-right-view">
-        <view class="num-view">0</view>
-        <view class="num-minus">
-          <text class="oper">-</text>
-        </view>
-        <view class="num-plus">
-          <text class="oper">+</text>
-        </view>
-      </view>
-    </view>
+    
 
     <view class="foot-view"></view>
   </scroll-view>
@@ -95,7 +58,7 @@
     <view class="total-view">
       <view class="total-left-view">
         <view class="heji">合计</view>
-        <view class="total-price-view">￥0</view>
+        <view class="total-price-view">￥{{total}}</view>
       </view>
       <view class="total-right-view">
         <view class="btn-next" bindtap="contact_func">下一步</view>

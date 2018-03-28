@@ -74,7 +74,6 @@ Page({
   },
   onLoad: function (options) {
     //app.getUserinfo();
-    var hno = options.hno;
     this.setData(options);
     var that = this;
     /*

@@ -188,14 +188,12 @@ Page({
     })
   },
   onLoad: function (options) {
-    //app.getUserinfo();
-    var hno = options.hno;
-    this.setData({ hno: hno });
+    var ano = options.ano;
     var that = this;
-    /*
+  
     wx.request({
-      url: config.host + '/order',
-      data: { hno: hno },
+      url: config.host + '/kcomment',
+      data: { ano: ano },
       method: 'GET',
       header: {
         'Authorization': "JWT ",
@@ -203,11 +201,9 @@ Page({
       },
       success: function (res) {
         console.log(res);
-        var lists = res.data[0];
-        console.log(lists);
-        that.setData({ lists: lists });
+        that.setData(res.data)
       }
-    })*/
+    })
   },
   order_func: function (e) {
     if (this.data.date == undefined || this.data.timestart == undefined || this.data.timeend == undefined) {

@@ -1,6 +1,8 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const util = require('../../utils/util.js')
+var config = require("../../config.js")
+var app = getApp()
 
 Page({
   data: {
@@ -21,12 +23,50 @@ Page({
     duration: 1000,
   },
   //事件处理函数
-  binddetail: function() {
+  binddetail: function (e) {
+    console.log(e);
+
     wx.navigateTo({
-      url: '../detail/detail'
+      url: '../detail/detail?ano=' + e.currentTarget.dataset.ano
+    })
+  },
+  bindplacedetail: function (e) {
+    wx.navigateTo({
+      url: '../place/place?pno=' + e.currentTarget.dataset.pno,
+    })
+  },
+  bingredfund:function(e){
+
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '确定要退款吗？',
+      success: function (sm) {
+        if (sm.confirm) {
+          // 用户点击了确定 可以调用删除方法了
+          wx.request({
+            url: config.host + '/krefund',
+            method: 'GET',
+            header: {
+              'Authorization': "JWT ",
+              'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+            },
+            data: { oid: e.currentTarget.dataset.oid },
+            success: function (res) {
+              console.log(res);
+              that.setData(res.data);
+              app.reload();
+            }
+          })
+        } else if (sm.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
   },
   onLoad: function () {
+    //app.getUserinfo();
+    /*
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -52,9 +92,23 @@ Page({
           })
         }
       })
-    }
+    }*/
+    var that = this;
+    wx.request({
+      url: config.host + '/korder_list',
+      method: 'GET',
+      header: {
+        'Authorization': "JWT ",
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      data:{openid:wx.getStorageSync('openid')},
+      success: function (res) {
+        console.log(res);
+        that.setData(res.data);
+      }
+    })
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({

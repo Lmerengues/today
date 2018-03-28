@@ -57,6 +57,7 @@ Page({
     fapiao_flag: 0,
     barb_flag: 0,
     ready_flag: 0,
+    total:0,
     need_text: "",
     readyitems: [
       { name: '0', value: '不需要', checked: 'true' },
@@ -85,8 +86,30 @@ Page({
     })
   },
   contact_func:function(){
-    wx.navigateTo({
-      url: "../contact/contact"
+    console.log(this.data.numofticket);
+    var that = this;
+    wx.request({
+      url: config.host + '/kcreate_ticket',
+      data: {numoftickets:this.data.numofticket},
+      method: 'GET',
+      header: {
+        'Authorization': "JWT ",
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      success: function (res) {
+        console.log(res);
+        console.log("a");
+
+        var pno = that.data.pno;
+        var date = that.data.date;
+        var total = that.data.total;
+
+        wx.navigateTo({
+          url: "../contact/contact?pno=" + pno + "&date=" + date
+          + "&total=" + total +"&tid="+res.data.maxtid
+        })
+        
+      }
     })
   },
   regionchange(e) {
@@ -187,15 +210,50 @@ Page({
       need_text: e.detail.value
     });
   },
+  bindPlus:function(e){
+    console.log(e);
+    var new_numofticket = this.data.numofticket;
+    console.log(this.data.numofticket);
+    new_numofticket[e.currentTarget.dataset.tno] ++;
+    var new_total = this.data.total + 1 * this.data.priceofticket[e.currentTarget.dataset.tno];
+
+    this.setData({numofticket:new_numofticket,total:new_total});
+    console.log(this.data.numofticket);
+  },
+
+  bindMinus:function(e){
+    console.log(e);
+    var new_numofticket = this.data.numofticket;
+    console.log(this.data.numofticket);
+
+    if (new_numofticket[e.currentTarget.dataset.tno] == 0){
+      return ;
+    }
+    new_numofticket[e.currentTarget.dataset.tno]--;
+    var new_total = this.data.total - 1 * this.data.priceofticket[e.currentTarget.dataset.tno];
+
+    this.setData({ numofticket: new_numofticket, total: new_total });
+    console.log(this.data.numofticket);
+  },
+  bindRechoose:function(e){
+    var new_numofticket = this.data.numofticket
+    for (var key in new_numofticket) {
+      new_numofticket[key] = 0;
+    }
+    console.log(new_numofticket);
+    this.setData({ numofticket: new_numofticket,total:0});
+    
+  },
   onLoad: function (options) {
     //app.getUserinfo();
-    var hno = options.hno;
-    this.setData({ hno: hno });
+    console.log(options);
+    this.setData(options);
+
     var that = this;
-    /*
+    
     wx.request({
-      url: config.host + '/order',
-      data: { hno: hno },
+      url: config.host + '/kticket',
+      data: { pno: that.data.pno },
       method: 'GET',
       header: {
         'Authorization': "JWT ",
@@ -203,13 +261,23 @@ Page({
       },
       success: function (res) {
         console.log(res);
-        var lists = res.data[0];
-        console.log(lists);
-        that.setData({ lists: lists });
+        console.log("1");
+        //var lists = res.data[0];
+        //console.log(lists);
+        that.setData(res.data);
+        var numofticket = {};
+        var priceofticket = {};
+        for(var i=0;i<that.data.ticket.length;i++){
+          numofticket[that.data.ticket[i]['tno']] = 0;
+          priceofticket[that.data.ticket[i]['tno']] = that.data.ticket[i]['tprice'];
+        }
+        that.setData({numofticket:numofticket,priceofticket:priceofticket});
+        console.log(numofticket);
       }
-    })*/
+    })
   },
   order_func: function (e) {
+    /*
     if (this.data.date == undefined || this.data.timestart == undefined || this.data.timeend == undefined) {
       wx.showToast({
         title: '请选择日期时间!',
@@ -234,9 +302,13 @@ Page({
       })
       return;
     }
+    */
     var that = this;
+    wx.navigateTo({
+      url: "../contact/contact?"
+    })
 
-    wx.request({
+    /*wx.request({
       url: config.host + '/check_time',
       data: { hno: this.data.hno, date: this.data.date, start: this.data.timestart, end: this.data.timeend },
       method: 'GET',
@@ -301,7 +373,7 @@ Page({
           return;
         }
       }
-    })
+    })*/
 
 
   },

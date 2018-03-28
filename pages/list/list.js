@@ -1,7 +1,9 @@
 //index.js
 //获取应用实例
-// var app = getApp()
-var utils = require('../../utils/util.js')
+const utils = require('../../utils/util.js')
+var config = require("../../config.js")
+var app = getApp()
+
 Page({
   data: {
     loading: false, // 加载中
@@ -19,11 +21,31 @@ Page({
     dateMonth: '1月',  // 正显示的月份
     dateListArray: ['日','一','二','三','四','五','六'],
   },
-  onLoad (option) {
+  onLoad (options) {
     var that = this;
+    this.setData(options);
     // this.loading();
     this.initDate(); // 日历组件程序
     //this.initList(); // 列表程序
+    console.log(this.data.dateCurrentStr);
+    wx.request({
+      url: config.host + '/klist',
+      method: 'GET',
+      header: {
+        'Authorization': "JWT ",
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      data:{pno:that.data.pno},
+      success: function (res) {
+        console.log(res);
+        that.setData(res.data);
+        that.setData({list: {
+          activity: { pageNo: 1, data: res.data.list },
+          brand: { pageNo: 1, data: [] },
+        }})
+      }
+    })
+    console.log(options);
   },
   onShow: function( e ) {
     // this.loading('close');
@@ -206,5 +228,12 @@ Page({
       title: '优惠尽在青浦奥莱',
       path: 'index'
     }
-  }
+  },
+  binddetail: function (e) {
+    console.log(e);
+
+    wx.navigateTo({
+      url: '../detail/detail?ano=' + e.currentTarget.dataset.ano
+    })
+  },
 })

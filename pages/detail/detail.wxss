@@ -2,14 +2,12 @@
 .mycontainer{
   padding:0 0;
   background-color: #ffffff;
-  height:1300rpx;
 }
 .my-scroll{
-  height:100%;
   width:100%;
 }
 .swiper-view{
-  height:52%;
+  height:650rpx;
   width:100%;
 }
 .myswiper{
@@ -22,6 +20,11 @@
   height: 100%;
   margin-bottom: 0;
   padding-bottom:0; 
+}
+.medium-gray-icon{
+  height:20rpx;
+  width:20rpx;
+  display:block;
 }
 
 .basic-info-view{
@@ -112,13 +115,15 @@
 .about-view{
   width:92%;
   margin: 30rpx 4%;
-  border-bottom:10rpx solid #9f9999;
+  border-bottom:1rpx solid #9f9999;
   padding-bottom:20rpx;
 }
 .large-title{
   color:#000000;
   font-size:25px;
   font-weight:500;
+  border-left:10rpx solid #f8572e;
+  padding-left:5rpx;
 }
 .detail-text{
   font-weight:300;
@@ -228,7 +233,7 @@
 .taocan-block-view{
   width:92%;
   margin: 30rpx 4%;
-  border-bottom:10rpx solid #9f9999;
+  border-bottom:1rpx solid #9f9999;
 }
 .about-medium-title-view{
   margin-top:40rpx;
@@ -253,9 +258,14 @@
   display:flex;
 }
 .view-btn-2{
-  width:100%;
+  width:70%;
   height:100%;
   background-color: #917651;
+}
+.view-btn-1{
+  width:30%;
+  height:100%;
+  background-color: #4876ba;
 }
 .yueta{
   width:100%;
@@ -263,7 +273,20 @@
   background-color: #f8572e;
   color:#ffffff;
 }
+.huishou{
+  width:100%;
+  height:100%;
+  background-color: #4876ba;
+  color:#ffffff;
+}
 
 .foot-view{
   height:150rpx;
+}
+.about-img-view{
+  width:100%;
+}
+.about-image{
+  width:98%;
+  margin-left:1%;
 }

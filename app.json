@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/myorder/myorder",
     "pages/index/index",
+    "pages/myorder/myorder",
     "pages/food/food",
     "pages/list/list",
     "pages/place/place",
@@ -18,7 +18,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "真约体验",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
@@ -34,7 +34,7 @@
         "text": "探索"
       },
       {
-        "pagePath": "pages/des/des",
+        "pagePath": "pages/place/place",
         "iconPath": "images/my3.png",
         "selectedIconPath": "images/my2.png",
         "text": "目的地"

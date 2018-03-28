@@ -1,15 +1,17 @@
 //index.js
 //获取应用实例
-// var app = getApp()
-var utils = require('../../utils/util.js')
+const utils = require('../../utils/util.js')
+var config = require("../../config.js")
+var app = getApp()
+
 Page({
   data: {
     loading: false, // 加载中
 
     activityOrBrand: true, // 正显示活动还是优惠 —— true 为活动
     list: {
-      activity: {pageNo: 1, data: []},
-      brand: {pageNo: 1, data: []},
+      activity: { pageNo: 1, data: [] },
+      brand: { pageNo: 1, data: [] },
     },
 
     dateList: [],   // 日历数据数组
@@ -17,19 +19,41 @@ Page({
     dateCurrent: new Date(),  // 正选择的当前日期
     dateCurrentStr: '', // 正选择日期的 id
     dateMonth: '1月',  // 正显示的月份
-    dateListArray: ['日','一','二','三','四','五','六'],
+    dateListArray: ['日', '一', '二', '三', '四', '五', '六'],
   },
-  onLoad (option) {
+  onLoad(options) {
     var that = this;
+    this.setData(options);
     // this.loading();
     this.initDate(); // 日历组件程序
     //this.initList(); // 列表程序
+    console.log(this.data.dateCurrentStr);
+    wx.request({
+      url: config.host + '/kfood_list',
+      method: 'GET',
+      header: {
+        'Authorization': "JWT ",
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      data: { pno: that.data.pno },
+      success: function (res) {
+        console.log(res);
+        that.setData(res.data);
+        that.setData({
+          list: {
+            activity: { pageNo: 1, data: res.data.list },
+            brand: { pageNo: 1, data: [] },
+          }
+        })
+      }
+    })
+    console.log(options);
   },
-  onShow: function( e ) {
+  onShow: function (e) {
     // this.loading('close');
-    wx.getSystemInfo( {
-      success: ( res ) => {
-        this.setData( {
+    wx.getSystemInfo({
+      success: (res) => {
+        this.setData({
           windowHeight: res.windowHeight,
           windowWidth: res.windowWidth,
         });
@@ -38,16 +62,16 @@ Page({
   },
 
   // 下拉刷新
-  onPullDownRefresh () {
+  onPullDownRefresh() {
     this.loadList(true);
   },
-  onReachBottom () {
+  onReachBottom() {
     this.loadList();
   },
 
   // 顶部 tab 部分
   // ----------------------------
-  choose1 (e) {
+  choose1(e) {
     var that = this;
     this.setData({
       activityOrBrand: !that.data.activityOrBrand,
@@ -57,12 +81,12 @@ Page({
 
   // 日历组件部分
   // ----------------------------
-  initDate () {
+  initDate() {
     var d = new Date();
-    var month = utils.addZero(d.getMonth()+1),
-        day = utils.addZero(d.getDate());
-    for(var i=-3; i<=3; i++) {
-      this.updateDate(utils.DateAddDay(d, i*7));
+    var month = utils.addZero(d.getMonth() + 1),
+      day = utils.addZero(d.getDate());
+    for (var i = -3; i <= 3; i++) {
+      this.updateDate(utils.DateAddDay(d, i * 7));
     }
     this.setData({
       swiperCurrent: 3,
@@ -72,25 +96,25 @@ Page({
     });
   },
   // 获取这周从周日到周六的日期
-  calculateDate (_date) {
+  calculateDate(_date) {
     var first = utils.FirstDayInThisWeek(_date);
     var d = {
       'month': first.getMonth() + 1,
       'days': [],
     };
-    for(var i=0; i<7; i++) {
+    for (var i = 0; i < 7; i++) {
       var dd = utils.DateAddDay(first, i);
       var day = utils.addZero(dd.getDate()),
-          month = utils.addZero(dd.getMonth()+1);
+        month = utils.addZero(dd.getMonth() + 1);
       d.days.push({
         'day': day,
-        'id': dd.getFullYear()+'-'+month+'-'+day,
+        'id': dd.getFullYear() + '-' + month + '-' + day,
       });
     }
     return d;
   },
   // 更新日期数组数据
-  updateDate (_date, atBefore) {
+  updateDate(_date, atBefore) {
     var week = this.calculateDate(_date);
     if (atBefore) {
       this.setData({
@@ -103,7 +127,7 @@ Page({
     }
   },
   // 日历组件轮播切换
-  dateSwiperChange (e) {
+  dateSwiperChange(e) {
     var index = e.detail.current;
     var d = this.data.dateList[index];
     this.setData({
@@ -112,19 +136,19 @@ Page({
     });
   },
   // 获得日期字符串
-  getDateStr: function(arg) {
+  getDateStr: function (arg) {
     if (utils.type(arg) == 'array') {
       return arr[0] + '-' + arr[1] + '-' + arr[2] + ' 00:00:00';
     } else if (utils.type(arg) == 'date') {
-      return arg.getFullYear() + '-' + (arg.getMonth()+1) + '-' + arg.getDate() + ' 00:00:00';
+      return arg.getFullYear() + '-' + (arg.getMonth() + 1) + '-' + arg.getDate() + ' 00:00:00';
     } else if (utils.type(arg) == 'object') {
       return arg.year + '-' + arg.month + '-' + arg.day + ' 00:00:00';
     }
   },
   // 点击日历某日
-  chooseDate (e) {
+  chooseDate(e) {
     var str = e.target.id;
-    this.setData({dateCurrentStr: str,});
+    this.setData({ dateCurrentStr: str, });
     this.loadList(true);
   },
 
@@ -132,23 +156,23 @@ Page({
   // 列表部分
   // ----------------------------
   // 初始化列表
-  initList () {
+  initList() {
     this.loadList(true);
   },
   // 下拉加载更多
-  loadMore () {
+  loadMore() {
     // this.loadList();
   },
   // 列表数据
-  loadList (reFresh) {
+  loadList(reFresh) {
     var dateStr = this.data.dateCurrentStr + ' 00:00:00',
-        flag = this.data.activityOrBrand,
-        _data = this.data.list,
-        _list = (flag==true ? _data.activity : _data.brand),
-        pageNo = reFresh ? 1 : ++_list.pageNo,
-        list = reFresh ? [] : _list.data;
+      flag = this.data.activityOrBrand,
+      _data = this.data.list,
+      _list = (flag == true ? _data.activity : _data.brand),
+      pageNo = reFresh ? 1 : ++_list.pageNo,
+      list = reFresh ? [] : _list.data;
     // console.log(dateStr, flag, pageNo, list);
-    
+
     // 请求数据接口
     var that = this;
     that.loading();
@@ -181,7 +205,7 @@ Page({
     });*/
   },
   // 对返回的数据进行处理
-  defaultTheData (data) {
+  defaultTheData(data) {
     // for(var i in data) {
     //   var c = data[i].Content;
     //   if (!(c && c.BeginTime && c.EndTime)) {data[i].Time = ''; continue;} 
@@ -189,7 +213,7 @@ Page({
     // }
     return data;
   },
-  loading (close) {
+  loading(close) {
     if (!close) {
       wx.showToast({
         title: '加载中',

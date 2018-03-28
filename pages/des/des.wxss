@@ -150,3 +150,7 @@
 .search-input-placeholder {
   text-align: center;
 }
+
+.foot-view{
+  height:300rpx;
+}

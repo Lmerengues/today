@@ -1,6 +1,8 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const util = require('../../utils/util.js')
+var config = require("../../config.js")
+var app = getApp()
 
 Page({
   data: {
@@ -21,12 +23,21 @@ Page({
     duration: 1000,
   },
   //事件处理函数
-  binddetail: function() {
+  binddetail: function(e) {
+    console.log(e);
+
     wx.navigateTo({
-      url: '../detail/detail'
+      url: '../detail/detail?ano='+e.currentTarget.dataset.ano
+    })
+  },
+  bindplacedetail:function(e){
+    wx.navigateTo({
+      url: '../place/place?pno=' + e.currentTarget.dataset.pno,
     })
   },
   onLoad: function () {
+    app.getUserinfo();
+    /*
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -52,7 +63,20 @@ Page({
           })
         }
       })
-    }
+    }*/
+    var that = this;
+    wx.request({
+      url: config.host + '/kindex',
+      method: 'GET',
+      header: {
+        'Authorization': "JWT ",
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      success: function (res) {
+        console.log(res);
+        that.setData(res.data);
+      }
+    })
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -61,5 +85,12 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  onShareAppMessage: function () {
+    return {
+      title: "真约体验",
+      desc: "真约体验",
+      path: "/pages/index/index"
+    }
   }
 })

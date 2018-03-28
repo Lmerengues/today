@@ -100,6 +100,7 @@ Page({
       date: e.detail.value,
       date_holder: ''
     })
+    /*
     wx.request({
       url: config.host + '/check_date',
       data: { hno: this.data.hno, date: this.data.date },
@@ -120,7 +121,7 @@ Page({
         //console.log(lists);
         //that.setData({ lists: lists });
       }
-    })
+    })*/
 
 
   },
@@ -182,20 +183,26 @@ Page({
       need_text: e.detail.value
     });
   },
-  yue:function(options){
+  yue:function(e){
+    if(this.data.date == undefined){
+      wx.showToast({
+        title: '请选择日期！',
+      });
+      return ;
+    }
     wx.navigateTo({
-      url: '../num/num'
+      url: '../num/num?pno='+e.currentTarget.dataset.pno+'&date='+this.data.date
     })
   },
   onLoad: function (options) {
     //app.getUserinfo();
-    var hno = options.hno;
-    this.setData({ hno: hno });
+    var ano = options.ano;
+    this.setData({ ano: ano });
     var that = this;
-    /*
+    
     wx.request({
-      url: config.host + '/order',
-      data: { hno: hno },
+      url: config.host + '/korder',
+      data: { ano: ano },
       method: 'GET',
       header: {
         'Authorization': "JWT ",
@@ -203,11 +210,9 @@ Page({
       },
       success: function (res) {
         console.log(res);
-        var lists = res.data[0];
-        console.log(lists);
-        that.setData({ lists: lists });
+        that.setData(res.data);
       }
-    })*/
+    })
   },
   order_func: function (e) {
     if (this.data.date == undefined || this.data.timestart == undefined || this.data.timeend == undefined) {

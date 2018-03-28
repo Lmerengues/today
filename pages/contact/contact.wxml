@@ -3,19 +3,19 @@
   <scroll-view scroll-y="true" class="my-scroll">
     <view class="ticket-view">
       <view class="ticket-name-view">
-        香港迪士尼乐园门票（一日/两日）
+        {{package.ptitle}}
       </view>
       <view class="ticket-type-view">
-        1日门票
+        {{atitle}}
       </view>
       <view class="ticket-date-view">
-        2018年1月22日
+        {{date}}
       </view>
-      <view class="ticket-num-view">
+      <!--view class="ticket-num-view">
         1x成人 1x儿童
-      </view>
+      </view-->
       <view class="ticket-money-view">
-        ￥736
+        ￥{{total}}
       </view>
     </view>
 
@@ -26,19 +26,19 @@
     <view class="time-select-view">
       <view class="time-title">姓名:</view>
       <view class="time-select">
-        <input class="need-input" placeholder-class="holder" placeholder="请输入您的联系姓名" type="text" value="{{name}}" bindinput="bindname" ></input>
+        <input class="need-input" placeholder-class="holder" placeholder="请输入您的联系姓名" type="text" value="{{uname}}" bindinput="bindname" ></input>
       </view>
     </view>
     <view class="time-select-view">
       <view class="time-title">电话号码:</view>
       <view class="time-select">
-        <input class="need-input" placeholder-class="holder" placeholder="以便在紧急情况下即时联络" type="text" value="{{name}}" bindinput="bindname" ></input>
+        <input class="need-input" placeholder-class="holder" placeholder="以便在紧急情况下即时联络" type="text" value="{{uphone}}" bindinput="bindphone" ></input>
       </view>
     </view>
     <view class="time-select-view">
       <view class="time-title">邮箱:</view>
       <view class="time-select">
-        <input class="need-input" placeholder-class="holder" placeholder="接收凭证" type="text" value="{{name}}" bindinput="bindname" ></input>
+        <input class="need-input" placeholder-class="holder" placeholder="接收凭证" type="text" value="{{uemail}}" bindinput="bindwechat" ></input>
       </view>
     </view>
 
@@ -52,11 +52,11 @@
 
     <view class="total-view">
       <view class="total-name-view">支付金额</view>
-      <view class="total-num-view">￥736.00</view>
+      <view class="total-num-view">￥{{total}}.00</view>
     </view>
-    <view class="score-view">
+    <!--view class="score-view">
       您可获得89积分
-    </view>
+    </view-->
 
 
     <view class="foot-view"></view>

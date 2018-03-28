@@ -259,7 +259,7 @@
 }
 .activity-join-view{
   font-size:25rpx;
-  padding-left:20rpx;
+  /*padding-left:20rpx;*/
   font-weight:400;
   color:#707070;
 }

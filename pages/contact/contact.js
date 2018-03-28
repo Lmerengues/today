@@ -182,15 +182,30 @@ Page({
       need_text: e.detail.value
     });
   },
+  bindname: function (e) {
+    this.setData({
+      uname: e.detail.value
+    });
+  },
+  bindphone: function (e) {
+    this.setData({
+      uphone: e.detail.value
+    });
+  },
+  bindwechat: function (e) {
+    this.setData({
+      uemail: e.detail.value
+    });
+  },
   onLoad: function (options) {
     //app.getUserinfo();
-    var hno = options.hno;
-    this.setData({ hno: hno });
     var that = this;
-    /*
+    console.log(options);
+    this.setData(options);
+    
     wx.request({
-      url: config.host + '/order',
-      data: { hno: hno },
+      url: config.host + '/kcontact',
+      data: {openid:wx.getStorageSync('openid'),pno:this.data.pno},
       method: 'GET',
       header: {
         'Authorization': "JWT ",
@@ -198,11 +213,19 @@ Page({
       },
       success: function (res) {
         console.log(res);
-        var lists = res.data[0];
-        console.log(lists);
-        that.setData({ lists: lists });
+        if(res.data.uname == undefined){
+          res.data.uname = "";
+        }
+        if (res.data.uemail == undefined) {
+          res.data.uemail = "";
+        }
+        if (res.data.uphone == undefined) {
+          res.data.uphone = "";
+        }
+        that.setData(res.data);
+        var cno = res.data.cno;
       }
-    })*/
+    })
   },
   order_func: function (e) {
     if (this.data.date == undefined || this.data.timestart == undefined || this.data.timeend == undefined) {
@@ -301,8 +324,83 @@ Page({
 
   },
   next:function(){
-    wx.navigateTo({
-      url: '../success/success',
+    var that = this;
+    wx.request({
+      url: config.host + '/kcontact_submit',
+      data: { openid: wx.getStorageSync('openid'),uname:this.data.uname,uphone:this.data.uphone,uemail:this.data.uemail },
+      method: 'GET',
+      header: {
+        'Authorization': "JWT ",
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      success: function (res) {
+        console.log(res);
+        that.setData(res.data);
+
+
+        wx.request({
+          url: config.host + '/kpay',
+          data: { pno: that.data.pno, tid: that.data.tid, price_total: that.data.total, openid: wx.getStorageSync('openid'), cno: that.data.cno, date: that.data.date },
+          method: 'GET',
+          header: {
+            'Authorization': "JWT ",
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+          },
+          success: function (res) {
+            console.log(res);
+            var oid = res.data.order_id
+            //var lists = res.data[0];
+            //console.log(lists);
+            if (res.data.my_status == 1) {
+              wx.requestPayment({
+                timeStamp: res.data.timeStamp,
+                nonceStr: res.data.nonceStr,
+                package: res.data.package,
+                signType: res.data.signType,
+                paySign: res.data.paySign,
+                'success': function (res) {
+                  console.log("rp success");
+                  console.log(res);
+
+                  /*wx.request({
+                    url: config.host + '/mail',
+                    data: { oid: oid },
+                    method: 'GET',
+                    header: {
+                      'Authorization': "JWT ",
+                      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                    },
+                    success: function (res) {
+                      console.log(res);
+                    }
+                  });*/
+                  wx.showToast({
+                    title: '成功，3秒后跳转',
+                    icon: 'success',
+                    duration: 2000
+                  });
+                  setTimeout(function () {
+                    
+              
+                    //pagenum += "tip=" + that.data.tip;
+                    wx.redirectTo({
+                      url: "../success/success?ptitle=" + that.data.package.ptitle+"&atitle="+that.data.atitle+"&date="+that.data.date+"&total="+that.data.total
+                    })
+                  }, 3000)
+                },
+                'fail': function (res) {
+                  console.log(res)
+                }
+              })
+            }
+
+          }
+        }) 
+
+
+        
+      }
     })
+    
   }
 })

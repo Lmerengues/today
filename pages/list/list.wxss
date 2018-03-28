@@ -208,9 +208,10 @@
 
 .activity-view{
   width:94%;
-  height:600rpx;
+  height:700rpx;
   margin:0 3%;
   margin-top:40rpx;
+  margin-bottom:50rpx;
 }
 .activity-img-view{
   width:100%;
@@ -252,7 +253,7 @@
 }
 .activity-join-view{
   font-size:25rpx;
-  padding-left:20rpx;
+  /*padding-left:20rpx;*/
   font-weight:400;
   color:#707070;
 }

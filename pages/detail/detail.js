@@ -43,12 +43,17 @@ Page({
   },
   order_func:function(e){
     wx.navigateTo({
-      url: "../order/order"
+      url: "../order/order?ano="+this.data.ano
+    })
+  },
+  back_func: function (e) {
+    wx.switchTab({
+      url: '../index/index',
     })
   },
   more_comment:function(e){
     wx.navigateTo({
-      url: "../comment/comment"
+      url: "../comment/comment?ano="+this.data.ano
     })
   },
   regionchange(e) {
@@ -61,6 +66,9 @@ Page({
     console.log(e.controlId)
   },
   onLoad: function (options) {
+    var ano = options.ano;
+    this.setData({ano:ano});
+    var that = this;
     //app.getUserinfo();
     /*
     this.setData({ hno: options.hno });
@@ -95,12 +103,27 @@ Page({
           }]})
       }
     })*/
+    wx.request({
+      url: config.host + '/kdetail',
+      method: 'GET',
+      header: {
+        'Authorization': "JWT ",
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      data:{'ano':ano},
+      success: function (res) {
+        console.log(res);
+        that.setData(res.data);
+        //var score_real = (res.data.act.ascore+0.0)/10;
+        //that.setData({act.ascore:score_real})
+      }
+    })
   },
   onShareAppMessage: function () {
     return {
-      title: this.data.lists.htitle1+"·"+this.data.lists.htitle2,
-      desc: this.data.lists.htitle1 + "·" + this.data.lists.htitle2,
-      path: "/pages/detail/detail?hno="+this.data.hno
+      title: this.data.act.atitle1,
+      desc: this.data.act.atitle1 ,
+      path: "/pages/detail/detail?ano="+this.data.ano
     }
   },
 })
